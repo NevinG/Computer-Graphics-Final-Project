@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f243c8b72fe1a7040808039d6401dd28, type: 3}
+  m_Name: Repeater
+  m_EditorClassIdentifier: 
+  plantGameObject: {fileID: 5166742247050546811, guid: a6fb5579a34b5f14ea107bb4cfd30271, type: 3}
+  sprite: {fileID: 21300000, guid: 24b1a055a24767f49a21d7222f95992d, type: 3}
+  cost: 200
+  cooldown: 7.5

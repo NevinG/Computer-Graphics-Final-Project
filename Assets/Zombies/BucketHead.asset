@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b9ec815e4c0994290431ccc07469e4, type: 3}
+  m_Name: BucketHead
+  m_EditorClassIdentifier: 
+  zombieGameObject: {fileID: 7307354310589710599, guid: 0ee6e5b46d8287c46833a3566d7bc5e9, type: 3}
+  health: 1370
+  speed: 0.3

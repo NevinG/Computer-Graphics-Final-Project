@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7029850270039190849
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169065273958636185, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307724734618209741, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644836704432740851, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: fall
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827150843052957786, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
+      propertyPath: m_Name
+      value: Sunflower Sun
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13f0dbe73760fb94a8f8dfe421694368, type: 3}
