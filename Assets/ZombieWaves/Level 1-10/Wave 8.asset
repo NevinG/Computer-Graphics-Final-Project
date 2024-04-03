@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTimeBeforeNextWavel: 18
   zombies:
-  - {fileID: 11400000, guid: dd6763b613c7540439ddba02ae642679, type: 2}
-  - {fileID: 11400000, guid: e41273e1132573643b3399ed3370ae66, type: 2}
-  - {fileID: 11400000, guid: e41273e1132573643b3399ed3370ae66, type: 2}
-  - {fileID: 11400000, guid: e41273e1132573643b3399ed3370ae66, type: 2}
+  - {fileID: 11400000, guid: 6a68300462b784c419dd0b0b68510bff, type: 2}
+  - {fileID: 11400000, guid: 8815a88600009f14c979fa574045fabf, type: 2}
+  - {fileID: 11400000, guid: 8815a88600009f14c979fa574045fabf, type: 2}
+  - {fileID: 11400000, guid: 8815a88600009f14c979fa574045fabf, type: 2}

@@ -29,11 +29,15 @@ public class Level : MonoBehaviour
 
     public GameObject otherReward;
 
+    private GameObject scene;
+
     GravePlacer gravePlacer;
     private void Start()
     {
         //get gravePlacer
-        gravePlacer = GameObject.Find("PlacedPlants").GetComponent<GravePlacer>();
+        scene = GameObject.Find("Scene");
+
+        //gravePlacer = GameObject.Find("PlacedPlants").GetComponent<GravePlacer>();
         GameHandler.instance.AddSun(startingSun);
         rows[0] = GameObject.Find("Row 1");
         rows[1] = GameObject.Find("Row 2");
@@ -56,7 +60,10 @@ public class Level : MonoBehaviour
             {
                 waveTimer = 0;
                 curWave++;
-                GameHandler.instance.progressImage.transform.localScale = new Vector2((float)curWave/(waves.Length - 1), 1);
+                RectTransform rt = GameHandler.instance.progressImage.GetComponent<RectTransform>();
+                Vector2 scale = rt.sizeDelta;
+                scale.x = (float)curWave/(waves.Length - 1) * 103.4457f;
+                rt.sizeDelta = scale;
                 SpawnWave(waves[curWave]);
             }
         }
@@ -92,16 +99,17 @@ public class Level : MonoBehaviour
             {
                 spawnRow = rows[Random.Range(0, 5)];
             }
-            Vector2 spawnPos = new Vector2(10.51f,spawnRow.transform.position.y);
-            GameObject z = Instantiate(zom.zombieGameObject, spawnPos, Quaternion.identity);
+            Vector3 spawnPos = new Vector3(10, scene.transform.position.y, spawnRow.transform.position.z);
+
+            GameObject z = Instantiate(zom.zombieGameObject, spawnPos, Quaternion.identity, scene.transform);
             GameHandler.instance.zombiePos.Add(z);
-            z.GetComponent<ZombieStats>().zombie = zom;
+            z.GetComponentInChildren<ZombieStats>().zombie = zom;
         }
 
         //graves
-        if(curWave == waves.Length - 1 && !day && gravePlacer != null)
-        {
-            gravePlacer.SpawnZombies();
-        }
+        // if(curWave == waves.Length - 1 && !day && gravePlacer != null)
+        // {
+        //     gravePlacer.SpawnZombies();
+        // }
     }
 }

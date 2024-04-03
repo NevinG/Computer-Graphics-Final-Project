@@ -16,6 +16,8 @@ public class Explosion : MonoBehaviour
             //explode
             foreach(GameObject g in GameHandler.instance.zombiePos)
             {
+                Vector2 ZombiePos = new Vector2(g.transform.position.x, g.transform.position.z);
+                Vector2 myPos = new Vector2(transform.position.x, transform.position.z);
                 if(Mathf.Abs(Vector2.Distance(g.transform.position,transform.position)) <= radius)
                 {
                     g.GetComponent<ZombieStats>().DamageZombie(1800);

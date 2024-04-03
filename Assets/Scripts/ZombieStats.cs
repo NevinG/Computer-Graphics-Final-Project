@@ -52,7 +52,7 @@ public class ZombieStats : MonoBehaviour
             atPlant = CheckIfAtPlant();
             if (!atPlant)
             {
-                transform.position = new Vector2(transform.position.x - (zombie.speed * Time.deltaTime * speedMult * frozenMult), transform.position.y);
+                transform.position = new Vector3(transform.position.x - (zombie.speed * Time.deltaTime * speedMult * frozenMult), transform.position.y, transform.position.z);
                 if (GetComponent<Animator>() != null && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("eat"))
                 {
                     GetComponent<Animator>().Play("walk");
@@ -66,7 +66,7 @@ public class ZombieStats : MonoBehaviour
             {
                 if(vault)
                 {
-                    Vector2 pos = transform.position;
+                    Vector3 pos = transform.position;
                     pos.x -= 1.1f;
                     transform.position = pos;
                     vault = false;
@@ -116,7 +116,7 @@ public class ZombieStats : MonoBehaviour
             }
 
             //check if zombie ate brains
-            if(transform.position.x <= -10)
+            if(transform.position.x <= -3.2)
             {
                 GameHandler.instance.dead = true;
                 GameHandler.instance.deadUI.SetActive(true);
@@ -159,7 +159,7 @@ public class ZombieStats : MonoBehaviour
         bool plant = false;
         foreach(GameObject g in GameHandler.instance.plantPos)
         {
-            if(g.transform.position.y == transform.position.y && Vector2.Distance(g.transform.position,transform.position) <= .5f && Vector2.Distance(g.transform.position, transform.position) > 0)
+            if(Mathf.Abs(g.transform.position.z - transform.position.z) <= .02f &&  transform.position.x - g.transform.position.x < .25f && transform.position.x - g.transform.position.x > 0)
             {
                 plant = true;
                 atThisPlant = g.GetComponent<PlantHealth>();
@@ -177,7 +177,6 @@ public class ZombieStats : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
             //make flash red
             flashingRed = true;
             timer = 0;

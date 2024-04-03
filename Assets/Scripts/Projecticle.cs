@@ -11,7 +11,7 @@ public class Projecticle : MonoBehaviour
     public bool frozen;
     private void Update()
     {
-        transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
+        transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
         CheckHit();
 
         if (transform.position.x >= 20)
@@ -24,13 +24,13 @@ public class Projecticle : MonoBehaviour
     {
         foreach (GameObject g in GameHandler.instance.zombiePos)
         {
-            Vector2 pos = (Vector2)g.transform.position;
-            if (rowPos == pos.y && pos.x - transform.position.x <= .1f && pos.x - transform.position.x >= 0)
+            Vector3 pos = g.transform.position; 
+            if (Mathf.Abs(rowPos - pos.z) <= .02 && pos.x - transform.position.x <= .1f && pos.x - transform.position.x >= 0)
             {
-                g.GetComponent<ZombieStats>().DamageZombie(damage);
+                g.GetComponentInChildren<ZombieStats>().DamageZombie(damage);
                 if(frozen)
                 {
-                    g.GetComponent<ZombieStats>().Freeze(5);
+                    g.GetComponentInChildren<ZombieStats>().Freeze(5);
                 }
                 Destroy(gameObject);
             }

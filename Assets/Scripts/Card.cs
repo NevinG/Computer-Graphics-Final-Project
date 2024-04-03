@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, IPointerDownHandler
 {
     public Plant plant;
 
@@ -17,25 +18,32 @@ public class Card : MonoBehaviour
 
     Image cooldownImage;
 
+    bool isDragging = false;
+
     private void Start()
     {
-        cooldownImage = GetComponentInChildren<Image>();
+        cooldownImage = transform.Find("Cooldown Image").GetComponentInChildren<Image>();
         sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
-    private void OnMouseDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
         if(GameHandler.instance.started && plant.cost <= GameHandler.instance.sunAmount && !cooldown)
         {
-            Vector2 spawnPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 spawnPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             placedPlant = Instantiate(plant.plantGameObject, spawnPos, Quaternion.identity);
+            YOffset yOffset = placedPlant.GetComponent<YOffset>();
+            if(yOffset){
+                placedPlant.transform.position = new Vector3(placedPlant.transform.position.x, yOffset.yOffset, placedPlant.transform.position.z);
+            }
             GameHandler.instance.placing = true;
+            isDragging = true;
 
             //remove components from placed plant
             Component[] components = placedPlant.GetComponentsInChildren<Component>();
             foreach (Component com in components)
             {
-                if (!(com is SpriteRenderer || com is Transform || com is SortingGroup || com is Animator))
+                if (!(com is MeshFilter || com is Transform || com is SortingGroup || com is Animator || com is MeshRenderer || com is YOffset))
                 {
                     Destroy(com);
                 }
@@ -43,43 +51,64 @@ public class Card : MonoBehaviour
         }
         
     }
-    private void OnMouseDrag()
+
+    private void Update()
     {
-        if (GameHandler.instance.started && plant.cost <= GameHandler.instance.sunAmount && !cooldown)
+        //move the placed plant to where your pointer is
+        if (isDragging && GameHandler.instance.started && plant.cost <= GameHandler.instance.sunAmount && !cooldown)
         {
             if (GameHandler.instance.placeSpot == null)
             {
                 placedPlant.SetActive(true);
-                placedPlant.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                
+                //Get spot to place plant STUFF
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                //Debug.DrawRay(ray.origin, ray.direction * 20, Color.white);
+                if (Physics.Raycast(ray, out hit)){
+                    if (hit.collider != null) {
+                        Vector3 newPos = hit.point;
+                        YOffset yOffset = placedPlant.GetComponent<YOffset>();
+                        if(yOffset != null){
+                            newPos.y += yOffset.yOffset;
+                        }
+                        placedPlant.transform.position = newPos;
+                        
+                    }
+                }
             }
             else if (GameHandler.instance.OpenSpot())
             {
                 placedPlant.SetActive(true);
-                placedPlant.transform.position = GameHandler.instance.placeSpot.position;
+                Vector3 newPos = GameHandler.instance.placeSpot.position;
+                YOffset yOffset = placedPlant.GetComponent<YOffset>();
+                if(yOffset != null){
+                    newPos.y += yOffset.yOffset;
+                }
+                placedPlant.transform.position = newPos;
             }
             else
             {
                 placedPlant.SetActive(false);
             }
         }
-    }
 
-    private void OnMouseUp()
-    {
-        if (GameHandler.instance.started && plant.cost <= GameHandler.instance.sunAmount && !cooldown)
-        {
-            if (GameHandler.instance.placeSpot != null && GameHandler.instance.OpenSpot())
+        //check if pointer is up
+        if(isDragging && !Input.GetMouseButton(0)){
+            if (GameHandler.instance.started && plant.cost <= GameHandler.instance.sunAmount && !cooldown)
             {
-                GameHandler.instance.placePlant(GameHandler.instance.placeSpot.position, plant);
-                StartCooldown();
+                if (GameHandler.instance.placeSpot != null && GameHandler.instance.OpenSpot())
+                {
+                    GameHandler.instance.placePlant(GameHandler.instance.placeSpot.position, plant);
+                    StartCooldown();
+                }
+                Destroy(placedPlant);
+                GameHandler.instance.placing = false;
+                isDragging = false;
             }
-            Destroy(placedPlant);
-            GameHandler.instance.placing = false;
         }
-    }
 
-    private void Update()
-    {
+
         if (GameHandler.instance.started && plant.cost <= GameHandler.instance.sunAmount)
         {
             foreach(SpriteRenderer sr in sprites)

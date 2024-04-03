@@ -23,13 +23,11 @@ public class GameHandler : MonoBehaviour
     public GameObject[] cards;
     public Plant[] pickedSeeds;
 
-    float sunTimer = 10f;
-    float timer;
-
     [HideInInspector] public Transform placeSpot;
     [HideInInspector] public List<GameObject> zombiePos;
     [HideInInspector] public List<GameObject> plantPos;
     [HideInInspector] public bool placing = false;
+    [HideInInspector] public GameObject canvas;
 
     public GameObject seedSelectorGO;
     public Image progressImage;
@@ -50,42 +48,44 @@ public class GameHandler : MonoBehaviour
 
     public void Start()
     {
+        canvas = GameObject.Find("Canvas");
+
         Time.timeScale = 1;
         level = SceneManager.GetActiveScene().buildIndex;
         nonSeedLevels = level / 5;
         levelText.text = "Level " + (((level - 1) / 10) + 1 )+ "-" +  level % 10;
-        if(level - nonSeedLevels > maxSeeds && !conveyorBelt)
-        {
-            pickedSeeds = new Plant[maxSeeds];
-            if(seedSelectorGO != null)
-            {
-                seedSelectorGO.SetActive(true);
-            }
-            started = false;
+        // if(level - nonSeedLevels > maxSeeds && !conveyorBelt)
+        // {
+        //     pickedSeeds = new Plant[maxSeeds];
+        //     if(seedSelectorGO != null)
+        //     {
+        //         seedSelectorGO.SetActive(true);
+        //     }
+        //     started = false;
 
-            selectCards = GameObject.Find("Seed Selector/Options").GetComponentsInChildren<SelectCard>();
-            pickedCards = GameObject.Find("Seed Selector/Selected Cards").GetComponentsInChildren<SelectCard>();
+        //     selectCards = GameObject.Find("Seed Selector/Options").GetComponentsInChildren<SelectCard>();
+        //     pickedCards = GameObject.Find("Seed Selector/Selected Cards").GetComponentsInChildren<SelectCard>();
 
-            for (int i = 0; i < selectCards.Length; i++)
-            {
-                selectCards[i].index = i;
-                if (i < level - nonSeedLevels)
-                {
-                    selectCards[i].gameObject.SetActive(true);
-                    selectCards[i].transform.Find("Plant Sprite").GetComponent<SpriteRenderer>().sprite = AllPlants.instance.allPlants[i].sprite;
-                    selectCards[i].gameObject.GetComponentInChildren<TextMeshProUGUI>().text = AllPlants.instance.allPlants[i].cost.ToString();
-                }
-                else
-                {
-                    selectCards[i].gameObject.SetActive(false);
-                }
-            }
+        //     for (int i = 0; i < selectCards.Length; i++)
+        //     {
+        //         selectCards[i].index = i;
+        //         if (i < level - nonSeedLevels)
+        //         {
+        //             selectCards[i].gameObject.SetActive(true);
+        //             selectCards[i].transform.Find("Plant Sprite").GetComponent<SpriteRenderer>().sprite = AllPlants.instance.allPlants[i].sprite;
+        //             selectCards[i].gameObject.GetComponentInChildren<TextMeshProUGUI>().text = AllPlants.instance.allPlants[i].cost.ToString();
+        //         }
+        //         else
+        //         {
+        //             selectCards[i].gameObject.SetActive(false);
+        //         }
+        //     }
 
-            for(int i = 0; i < pickedCards.Length; i++)
-            {
-                pickedCards[i].gameObject.SetActive(false);
-            }
-        }
+        //     for(int i = 0; i < pickedCards.Length; i++)
+        //     {
+        //         pickedCards[i].gameObject.SetActive(false);
+        //     }
+        // }
 
         if(started)
         {
@@ -95,6 +95,13 @@ public class GameHandler : MonoBehaviour
             {
                 pickedSeeds[i] = AllPlants.instance.allPlants[i];
             }
+
+            //TODO REMOVE THIS LATER! HERE FOR JUST DEBUGGING
+            // pickedSeeds = new Plant[AllPlants.instance.allPlants.Count];
+            // for (int i = 0; i < AllPlants.instance.allPlants.Count; i++)
+            // {
+            //     pickedSeeds[i] = AllPlants.instance.allPlants[i];
+            // }
 
             StartSettup();
         }
@@ -148,7 +155,7 @@ public class GameHandler : MonoBehaviour
             if (i < pickedSeeds.Length)
             {
                 cards[i].SetActive(true);
-                cards[i].transform.Find("Plant Sprite").GetComponent<SpriteRenderer>().sprite = pickedSeeds[i].sprite;
+                cards[i].transform.Find("Plant Sprite").GetComponent<Image>().sprite = pickedSeeds[i].sprite;
                 cards[i].GetComponentInChildren<TextMeshProUGUI>().text = pickedSeeds[i].cost.ToString();
                 cards[i].GetComponent<Card>().plant = pickedSeeds[i];
             }
@@ -194,22 +201,12 @@ public class GameHandler : MonoBehaviour
     {
         if(started)
         {
-            timer += Time.deltaTime;
-            if (timer > sunTimer && Level.instance.day)
-            {
-                timer = 0;
-                SpawnSun();
-            }
             CheckForDeadZombies();
             CheckForDeadPlants();
         }
     }
-    public void SpawnSun()
-    {
-        Instantiate(sun,new Vector2(0,10), Quaternion.identity);
-    }
 
-    public void placePlant(Vector2 pos , Plant plant)
+    public void placePlant(Vector3 pos , Plant plant)
     {
         RemoveSun(plant.cost);
         GameObject g = Instantiate(plant.plantGameObject, pos, Quaternion.identity);
@@ -253,9 +250,9 @@ public class GameHandler : MonoBehaviour
     {
         if(Level.instance.otherReward == null)
         {
-            GameObject go = Instantiate(nextLevelPlant, Vector3.zero, Quaternion.identity);
+            GameObject go = Instantiate(nextLevelPlant, canvas.transform);
 
-            go.transform.Find("Plant Sprite").GetComponent<SpriteRenderer>().sprite = AllPlants.instance.allPlants[level - nonSeedLevels].sprite;
+            go.transform.Find("Plant Sprite").GetComponent<Image>().sprite = AllPlants.instance.allPlants[level - nonSeedLevels].sprite;
             go.GetComponentInChildren<TextMeshProUGUI>().text = AllPlants.instance.allPlants[level - nonSeedLevels].cost.ToString();
 
             Vector3 pos = go.transform.position;
@@ -264,7 +261,7 @@ public class GameHandler : MonoBehaviour
         }
         else
         {
-            GameObject go = Instantiate(Level.instance.otherReward, Vector3.zero, Quaternion.identity);
+            GameObject go = Instantiate(Level.instance.otherReward, canvas.transform);
             Vector3 pos = go.transform.position;
             pos.z = -1;
             go.transform.position = pos;
@@ -287,7 +284,7 @@ public class GameHandler : MonoBehaviour
         {
             foreach(GameObject g in plantPos)
             {
-                if((Vector2)g.transform.position == (Vector2)placeSpot.position)
+                if((Vector3)g.transform.position == (Vector3)placeSpot.position)
                 {
                     Destroy(g);
                 }

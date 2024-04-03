@@ -42,6 +42,7 @@ MonoBehaviour:
   zombie: {fileID: 0}
   health: 0
   vault: 1
+  newspaper: 0
 --- !u!1001 &1991083347714964748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,6 +85,10 @@ PrefabInstance:
     - target: {fileID: -3593629550271382772, guid: d313b0d3fb0989b48a8d394b9139139a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2684225270710569836, guid: d313b0d3fb0989b48a8d394b9139139a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1535604234402924818, guid: d313b0d3fb0989b48a8d394b9139139a, type: 3}
       propertyPath: m_LocalPosition.x

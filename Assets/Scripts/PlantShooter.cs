@@ -38,9 +38,11 @@ public class PlantShooter : MonoBehaviour
 
     public void ShootProjectile()
     {
-        animator.Play("shoot");
+        if(animator && animator.HasState(0, Animator.StringToHash("shoot"))) {
+            animator.Play("shoot");
+        }
         GameObject proj = Instantiate(projectile, projectileSpot.position, Quaternion.identity);
-        proj.GetComponent<Projecticle>().rowPos = transform.position.y;
+        proj.GetComponent<Projecticle>().rowPos = transform.position.z;
     }
 
     public bool CheckIfZombie()
@@ -48,8 +50,8 @@ public class PlantShooter : MonoBehaviour
         bool zombie = false;
         foreach(GameObject g in GameHandler.instance.zombiePos)
         {
-            Vector2 pos = (Vector2)g.transform.position;
-            if(pos.y == transform.position.y && Vector2.Distance(transform.position,pos) > 0 && Vector2.Distance(transform.position, pos) < range)
+            Vector3 pos = g.transform.position;
+            if(Mathf.Abs(pos.z - transform.position.z) < .02 && Vector3.Distance(transform.position,pos) > 0 && Vector3.Distance(transform.position, pos) < range)
             {
                 zombie = true;
             }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PotatoeMine : MonoBehaviour
 {
-    public Sprite grownMine;
-
     bool grown = false;
     float timer = 0;
     float growthTime = 15;
@@ -13,10 +11,12 @@ public class PotatoeMine : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > growthTime)
+        if(timer > growthTime && !grown)
         {
             grown = true;
-            GetComponent<SpriteRenderer>().sprite = grownMine;
+            Vector3 pos = transform.position;
+            pos.y += .25f;
+            transform.position = pos;
         }
 
         if(grown)
@@ -29,8 +29,8 @@ public class PotatoeMine : MonoBehaviour
     {
         foreach (GameObject g in GameHandler.instance.zombiePos)
         {
-            Vector2 pos = (Vector2)g.transform.position;
-            if (transform.position.y == pos.y && pos.x - transform.position.x <= .55f && pos.x - transform.position.x >= 0)
+            Vector2 pos = new Vector2(g.transform.position.x, g.transform.position.z);
+            if (transform.position.z == pos.y && pos.x - transform.position.x < .25f && pos.x - transform.position.x >= -.1)
             {
                 Destroy(g);
                 Destroy(gameObject);

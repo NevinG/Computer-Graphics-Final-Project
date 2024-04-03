@@ -7,6 +7,11 @@ public class MenuHandler : MonoBehaviour
 {
     private void Start()
     {
+        //TODO maybe remove later
+        PlayerPrefs.SetInt("level", 1);
+
+
+
         Time.timeScale = 1;
     }
     public void ClickStart()
