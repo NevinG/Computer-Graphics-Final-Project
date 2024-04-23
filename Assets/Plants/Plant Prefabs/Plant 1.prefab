@@ -74,7 +74,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5844154689780837269}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2534964839176971238, guid: 9e6aac6a87945f047b99184a2f2ebc29, type: 3}
 --- !u!23 &1418371958915899340
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa48463eb4dacc4da10791688b24952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 3500370963121033752, guid: 9fc275af630f65d4ca0533a0ad40ff00, type: 3}
+  projectile: {fileID: 4910564102262479003, guid: fe21cb73a3b8ad946896897ff1c5a243, type: 3}
   projectileSpot: {fileID: 6550977725024202340}
   timerBeforeShoot: 1.5
   range: 20
