@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f243c8b72fe1a7040808039d6401dd28, type: 3}
   m_Name: Goldmine
   m_EditorClassIdentifier: 
-  plantGameObject: {fileID: 2868180051597151649, guid: 38a72f272479dd341b98bc8b780fc6f1, type: 3}
+  plantGameObject: {fileID: 937384658457016055, guid: 34b407aa20a91be45a7d504a4efea290, type: 3}
   sprite: {fileID: 21300000, guid: 960816c4bd33533499e4444d50a588f9, type: 3}
   cost: 50
   cooldown: 7.5

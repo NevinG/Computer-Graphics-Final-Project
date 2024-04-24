@@ -144,7 +144,7 @@ public class ZombieStats : MonoBehaviour
                 if(health <= 270)
                 {
                     speedMult = 3f;
-                    if (GetComponent<Animator>() != null && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("eat"))
+                    if (GetComponent<Animator>() != null && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack1"))
                     {
                         GetComponent<Animator>().Play("run");
                     }
