@@ -53,9 +53,9 @@ public class ZombieStats : MonoBehaviour
             if (!atPlant)
             {
                 transform.position = new Vector3(transform.position.x - (zombie.speed * Time.deltaTime * speedMult * frozenMult), transform.position.y, transform.position.z);
-                if (GetComponent<Animator>() != null && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("eat"))
+                if (GetComponent<Animator>() != null && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack1"))
                 {
-                    GetComponent<Animator>().Play("walk");
+                    GetComponent<Animator>().Play("Walk");
                     if(newspaper && health < 270)
                     {
                         GetComponent<Animator>().Play("run");
@@ -77,9 +77,9 @@ public class ZombieStats : MonoBehaviour
                 {
                     timer2 = 0;
                     atThisPlant.RemoveHealth(1);
-                    if (GetComponent<Animator>() != null && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("eat"))
+                    if (GetComponent<Animator>() != null && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack1"))
                     {
-                        GetComponent<Animator>().Play("eat");
+                        GetComponent<Animator>().Play("Attack1");
                     }
                 }
             }
