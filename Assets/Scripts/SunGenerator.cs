@@ -46,7 +46,7 @@ public class SunGenerator : MonoBehaviour
 
     private void collectGold(){
         hasGold = false;
-        GameHandler.instance.AddSun(25);
+        GameHandler.instance.AddSun(50);
         gold.SetActive(false);
     }
 
