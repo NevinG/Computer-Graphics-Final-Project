@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b9ec815e4c0994290431ccc07469e4, type: 3}
   m_Name: Zombie 1
   m_EditorClassIdentifier: 
-  zombieGameObject: {fileID: 139696, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
+  zombieGameObject: {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
   health: 270
   speed: 0.3
