@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f243c8b72fe1a7040808039d6401dd28, type: 3}
   m_Name: Freeze Cannon
   m_EditorClassIdentifier: 
-  plantGameObject: {fileID: 5074199030683531880, guid: f05dedc368bebb44ba58afc4f9a8212d, type: 3}
+  plantGameObject: {fileID: 5074199030683531880, guid: 7d9842b7e1f0c604cb3f184c0f223928, type: 3}
   sprite: {fileID: 21300000, guid: 2da9b437a08fd934faf638699d612948, type: 3}
   cost: 175
   cooldown: 7.5

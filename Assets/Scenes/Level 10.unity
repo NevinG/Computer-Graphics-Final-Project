@@ -7779,7 +7779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabledRows: 0101010101
   day: 1
-  startingSun: 400
+  startingSun: 200
   waves:
   - {fileID: 11400000, guid: 1fe7284b4d8180948ad03909babb5e8a, type: 2}
   - {fileID: 11400000, guid: 3f3b390d668ee03439ac53b1d76ce46f, type: 2}
