@@ -93,10 +93,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3208254134398424859}
   - component: {fileID: -3837012089810197342}
-  - component: {fileID: -9083093928568194117}
+  - component: {fileID: 4613426520186647164}
   - component: {fileID: 610388773877904713}
-  - component: {fileID: -6802084248952657536}
-  - component: {fileID: 991324943629642900}
+  - component: {fileID: 8508869869514825823}
   m_Layer: 0
   m_Name: Pickaxe2
   m_TagString: Untagged
@@ -134,20 +133,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 6
---- !u!114 &-9083093928568194117
-MonoBehaviour:
+--- !u!95 &4613426520186647164
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2868180051597151649}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762f2b1ae66590b47835c833c940dc7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sunPrefab: {fileID: 6789974970873179953, guid: 3287c80dddb81be43b21b71100447345, type: 3}
-  waitTime: 24
+  m_Avatar: {fileID: 9000000, guid: ccdf7d19765ee5440aba2b841498d88a, type: 3}
+  m_Controller: {fileID: 9100000, guid: 8cfe0fa719b6b5f47af7b49b85cf808f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &610388773877904713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,38 +165,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zOffset: 0.3
---- !u!65 &-6802084248952657536
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2868180051597151649}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &991324943629642900
-Animator:
-  serializedVersion: 3
+--- !u!114 &8508869869514825823
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2868180051597151649}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8cfe0fa719b6b5f47af7b49b85cf808f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762f2b1ae66590b47835c833c940dc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunPrefab: {fileID: 0}
+  waitTime: 24
 --- !u!1 &3163171036148655772
 GameObject:
   m_ObjectHideFlags: 0

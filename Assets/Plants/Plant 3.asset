@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f243c8b72fe1a7040808039d6401dd28, type: 3}
   m_Name: Plant 3
   m_EditorClassIdentifier: 
-  plantGameObject: {fileID: 42032914474944224, guid: be8948626845879489506bc98a855279, type: 3}
-  sprite: {fileID: 21300000, guid: 882b6b8173e5a6144ae69746517c22f4, type: 3}
+  plantGameObject: {fileID: 5844154689780837269, guid: 9b387e1ddcbcc95429773e9273044e65, type: 3}
+  sprite: {fileID: 21300000, guid: 6bbf7e0dfb8dc4e44af32e76328ec705, type: 3}
   cost: 150
   cooldown: 50
