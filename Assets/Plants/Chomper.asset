@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Chomper
   m_EditorClassIdentifier: 
   plantGameObject: {fileID: 5844154689780837269, guid: 42fc56746e14cf7438f7cec0df01b69b, type: 3}
-  sprite: {fileID: 21300000, guid: 2754a55efb926c94aac1201472ec83fb, type: 3}
+  sprite: {fileID: 21300000, guid: 3aa24bbaf1794574f83f4a86c31dee33, type: 3}
   cost: 150
   cooldown: 20
