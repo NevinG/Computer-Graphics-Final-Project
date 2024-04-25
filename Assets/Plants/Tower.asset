@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f243c8b72fe1a7040808039d6401dd28, type: 3}
-  m_Name: Peashooter
+  m_Name: Tower
   m_EditorClassIdentifier: 
-  plantGameObject: {fileID: 2735373993498820508, guid: dd79851194f435b46bc1be583206c4e4, type: 3}
-  sprite: {fileID: 21300000, guid: c521c4016a7664649b11f585a1ab084d, type: 3}
-  cost: 100
+  plantGameObject: {fileID: 7102091114173435896, guid: 01747bdae63623040adaaebc374e67f4, type: 3}
+  sprite: {fileID: 21300000, guid: b15b50c806e4d1c4085a7202a620e723, type: 3}
+  cost: 200
   cooldown: 7.5

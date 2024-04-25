@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f243c8b72fe1a7040808039d6401dd28, type: 3}
-  m_Name: Plant 3
+  m_Name: Wall
   m_EditorClassIdentifier: 
-  plantGameObject: {fileID: 5844154689780837269, guid: 9b387e1ddcbcc95429773e9273044e65, type: 3}
-  sprite: {fileID: 21300000, guid: 6bbf7e0dfb8dc4e44af32e76328ec705, type: 3}
-  cost: 150
-  cooldown: 50
+  plantGameObject: {fileID: 4589902576339169377, guid: 40bfda1dc8ec59d4894ff22e1135d7d8, type: 3}
+  sprite: {fileID: 21300000, guid: 0fdeb1762ef868b44bb115e485864f31, type: 3}
+  cost: 50
+  cooldown: 30

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f243c8b72fe1a7040808039d6401dd28, type: 3}
-  m_Name: Chomper
+  m_Name: Mine
   m_EditorClassIdentifier: 
-  plantGameObject: {fileID: 6512553317996376528, guid: ee2e3f653c5a39d4b897d1efad15649f, type: 3}
-  sprite: {fileID: 21300000, guid: 2754a55efb926c94aac1201472ec83fb, type: 3}
-  cost: 150
-  cooldown: 7.5
+  plantGameObject: {fileID: 5844154689780837269, guid: f8393e38a29a21a4098fc0cb4d046ab2, type: 3}
+  sprite: {fileID: 21300000, guid: 1302971ea5cbdde419462b2e04c3478b, type: 3}
+  cost: 25
+  cooldown: 30
